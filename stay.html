@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Your Stay | Serenity Palace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f4eee5;
+            color: #30251d;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 22px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            z-index: 10;
+
+            background: rgba(25, 18, 13, 0.65);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            color: white;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 32px;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #d6ad6d;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back-home {
+            border: 1px solid #d6ad6d;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: .3s;
+        }
+
+        .back-home:hover {
+            background: #d6ad6d;
+            color: #241b14;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .booking-hero {
+            min-height: 430px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(25, 18, 13, .55),
+                    rgba(25, 18, 13, .75)
+                ),
+                url("images/luxury-suite.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            padding: 100px 20px 40px;
+        }
+
+        .small-title {
+            color: #dfbb7c;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 11px;
+            margin-bottom: 15px;
+        }
+
+        .booking-hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(55px, 8vw, 90px);
+            font-weight: 500;
+        }
+
+        .booking-hero p {
+            margin-top: 15px;
+            color: #e6ddd3;
+            font-size: 13px;
+        }
+
+
+        /* ================= BOOKING AREA ================= */
+
+        .booking-area {
+            max-width: 1150px;
+            margin: -60px auto 100px;
+
+            position: relative;
+            z-index: 5;
+
+            padding: 0 20px;
+        }
+
+        .booking-card {
+            background: #fffaf3;
+
+            padding: 45px;
+
+            box-shadow:
+                0 25px 70px rgba(42, 30, 19, .18);
+
+            border-radius: 5px;
+        }
+
+        .booking-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .booking-title span {
+            color: #a47a45;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 4px;
+        }
+
+        .booking-title h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 42px;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: #675b50;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid #d8cbbd;
+
+            background: #fff;
+
+            color: #30251d;
+
+            font-family: "Poppins", sans-serif;
+
+            outline: none;
+
+            transition: .3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #b08a57;
+            box-shadow: 0 0 0 3px rgba(176,138,87,.08);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+
+        /* ================= ROOM SELECT ================= */
+
+        .room-selection {
+            margin-top: 35px;
+        }
+
+        .room-selection h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .room-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .room-option {
+            position: relative;
+        }
+
+        .room-option input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .room-label {
+            display: block;
+            border: 1px solid #d8cbbd;
+            cursor: pointer;
+            transition: .3s;
+            overflow: hidden;
+        }
+
+        .room-label img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .room-details {
+            padding: 15px;
+        }
+
+        .room-details h4 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 23px;
+            font-weight: 600;
+        }
+
+        .room-details p {
+            color: #756a60;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .room-details strong {
+            display: block;
+            margin-top: 10px;
+            color: #9a7040;
+            font-size: 12px;
+        }
+
+        .room-option input:checked + .room-label {
+            border: 2px solid #b28a55;
+            box-shadow: 0 10px 30px rgba(45,34,24,.12);
+            transform: translateY(-4px);
+        }
+
+
+        /* ================= PAYMENT ================= */
+
+        .payment-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #ded3c6;
+        }
+
+        .payment-section h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .payment-option {
+            position: relative;
+        }
+
+        .payment-option input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .payment-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 18px;
+
+            border: 1px solid #d8cbbd;
+
+            cursor: pointer;
+
+            background: white;
+
+            transition: .3s;
+        }
+
+        .payment-label .icon {
+            font-size: 25px;
+        }
+
+        .payment-label strong {
+            font-size: 12px;
+        }
+
+        .payment-label small {
+            display: block;
+            color: #82776d;
+            font-size: 10px;
+            margin-top: 3px;
+        }
+
+        .payment-option input:checked + .payment-label {
+            border-color: #b28a55;
+            background: #fbf5eb;
+        }
+
+
+        /* ================= SUMMARY ================= */
+
+        .booking-summary {
+            margin-top: 35px;
+
+            background: #30251d;
+            color: white;
+
+            padding: 28px;
+        }
+
+        .summary-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+
+            color: #d2c7ba;
+
+            font-size: 12px;
+
+            padding: 8px 0;
+        }
+
+        .summary-total {
+            border-top: 1px solid #55483c;
+            margin-top: 12px;
+            padding-top: 15px;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: white;
+            font-size: 16px;
+        }
+
+        #totalPrice {
+            color: #ddb776;
+            font-size: 20px;
+        }
+
+
+        /* ================= CONFIRM ================= */
+
+        .confirm-button {
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 17px;
+
+            border: none;
+
+            background: #c49a5e;
+            color: white;
+
+            font-family: "Poppins", sans-serif;
+            font-size: 13px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .confirm-button:hover {
+            background: #a87b45;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(80,55,30,.2);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #1d1611;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        footer h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+            letter-spacing: 3px;
+        }
+
+        footer h3 span {
+            color: #d6ad6d;
+        }
+
+        footer p {
+            color: #938a82;
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 800px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .room-options,
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-card {
+                padding: 25px;
+            }
+
+            .booking-area {
+                margin-top: -40px;
+            }
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        SERENITY<span>.</span>
+    </div>
+
+   <a href="intro.html" class="back-home">
+    ← Back to Home
+</a>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="booking-hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            Serenity Palace
+        </div>
+
+        <h1>
+            Book Your Stay
+        </h1>
+
+        <p>
+            Your peaceful escape begins here.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKING FORM ================= -->
+
+<section class="booking-area">
+
+    <div class="booking-card">
+
+        <div class="booking-title">
+
+            <span>
+                Reservation
+            </span>
+
+            <h2>
+                Plan Your Perfect Stay
+            </h2>
+
+        </div>
+
+
+        <form id="bookingForm">
+
+
+            <!-- PERSONAL DETAILS -->
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="your@email.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="+91 XXXXX XXXXX"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Number of Guests
+                    </label>
+
+                    <select id="guests">
+
+                        <option value="1">
+                            1 Guest
+                        </option>
+
+                        <option value="2" selected>
+                            2 Guests
+                        </option>
+
+                        <option value="3">
+                            3 Guests
+                        </option>
+
+                        <option value="4">
+                            4 Guests
+                        </option>
+
+                        <option value="5">
+                            5 Guests
+                        </option>
+
+                        <option value="6">
+                            6+ Guests
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DATES -->
+
+                <div class="form-group">
+
+                    <label>
+                        Check-In
+                    </label>
+
+                    <input
+                        type="date"
+                        id="checkin"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Check-Out
+                    </label>
+
+                    <input
+                        type="date"
+                        id="checkout"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Special Requests
+                    </label>
+
+                    <textarea
+                        id="requests"
+                        placeholder="Any special requirements? (Optional)"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROOM SELECTION -->
+
+            <div class="room-selection">
+
+                <h3>
+                    Choose Your Room
+                </h3>
+
+
+                <div class="room-options">
+
+
+                    <!-- DELUXE -->
+
+                    <div class="room-option">
+
+                        <input
+                            type="radio"
+                            name="room"
+                            id="deluxe"
+                            value="4999"
+                            data-name="Deluxe Room"
+                            checked
+                        >
+
+                        <label
+                            for="deluxe"
+                            class="room-label"
+                        >
+
+                             <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYktQWhGVt2qkg40Zgs8gTmylJXry2UYMbECKyDCXR6Q&s=10"
+                    alt="Deluxe room"
+                >
+
+                            <div class="room-details">
+
+                                <h4>
+                                    Deluxe Room
+                                </h4>
+
+                                <p>
+                                    Elegant & comfortable
+                                </p>
+
+                                <strong>
+                                    ₹4,999 / night
+                                </strong>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- LUXURY -->
+
+                    <div class="room-option">
+
+                        <input
+                            type="radio"
+                            name="room"
+                            id="luxury"
+                            value="7999"
+                            data-name="Luxury Suite"
+                        >
+
+                        <label
+                            for="luxury"
+                            class="room-label"
+                        >
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh6eu7mkrZGwljLRm_857Vffp-rJmAwBbOZ-ohX4dkEg&s=10"
+                                alt="Luxury Suite"
+                            >
+
+                            <div class="room-details">
+
+                                <h4>
+                                    Luxury Suite
+                                </h4>
+
+                                <p>
+                                    Spacious & premium
+                                </p>
+
+                                <strong>
+                                    ₹7,999 / night
+                                </strong>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- PRESIDENTIAL -->
+
+                    <div class="room-option">
+
+                        <input
+                            type="radio"
+                            name="room"
+                            id="presidential"
+                            value="14999"
+                            data-name="Presidential Suite"
+                        >
+
+                        <label
+                            for="presidential"
+                            class="room-label"
+                        >
+
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzswb-cFqbjPQE3VdxvArdOe7qm-niU4L7gNstjpRog&s=10"
+                                alt="Presidential Suite"
+                            >
+
+                            <div class="room-details">
+
+                                <h4>
+                                    Presidential
+                                </h4>
+
+                                <p>
+                                    Ultimate luxury
+                                </p>
+
+                                <strong>
+                                    ₹14,999 / night
+                                </strong>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="payment-section">
+
+                <h3>
+                    Payment Method
+                </h3>
+
+
+                <div class="payment-options">
+
+
+                    <div class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            id="cash"
+                            value="Cash on Delivery"
+                            checked
+                        >
+
+                        <label
+                            for="cash"
+                            class="payment-label"
+                        >
+
+                            <span class="icon">
+                                💵
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Cash on Arrival
+                                </strong>
+
+                                <small>
+                                    Pay at hotel
+                                </small>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            id="upi"
+                            value="UPI"
+                        >
+
+                        <label
+                            for="upi"
+                            class="payment-label"
+                        >
+
+                            <span class="icon">
+                                📱
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    UPI
+                                </strong>
+
+                                <small>
+                                    Google Pay / PhonePe / Paytm
+                                </small>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            id="card"
+                            value="Card"
+                        >
+
+                        <label
+                            for="card"
+                            class="payment-label"
+                        >
+
+                            <span class="icon">
+                                💳
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Card
+                                </strong>
+
+                                <small>
+                                    Debit / Credit Card
+                                </small>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- SUMMARY -->
+
+            <div class="booking-summary">
+
+                <div class="summary-title">
+                    Booking Summary
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Room
+                    </span>
+
+                    <span id="roomName">
+                        Deluxe Room
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Price / Night
+                    </span>
+
+                    <span id="nightPrice">
+                        ₹4,999
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Number of Nights
+                    </span>
+
+                    <span id="nightCount">
+                        1
+                    </span>
+
+                </div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        Estimated Total
+                    </span>
+
+                    <span id="totalPrice">
+                        ₹4,999
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="confirm-button"
+                >
+                    Confirm Your Reservation
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        SERENITY<span>.</span>
+    </h3>
+
+    <p>
+        A peaceful luxury destination for unforgettable stays.
+    </p>
+
+    <p>
+        © 2026 Serenity Palace. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+    /* ================= DATE SETUP ================= */
+
+    const today = new Date();
+
+    const year = today.getFullYear();
+
+    const month =
+        String(today.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(today.getDate()).padStart(2, "0");
+
+    const todayString =
+        `${year}-${month}-${day}`;
+
+    document.getElementById("checkin").min = todayString;
+
+    document.getElementById("checkout").min = todayString;
+
+
+    /* ================= CALCULATE PRICE ================= */
+
+    function calculatePrice() {
+
+        const checkin =
+            document.getElementById("checkin").value;
+
+        const checkout =
+            document.getElementById("checkout").value;
+
+        const selectedRoom =
+            document.querySelector(
+                'input[name="room"]:checked'
+            );
+
+        if (!selectedRoom) {
+            return;
+        }
+
+        const price =
+            Number(selectedRoom.value);
+
+        const roomName =
+            selectedRoom.dataset.name;
+
+
+        document.getElementById("roomName").textContent =
+            roomName;
+
+        document.getElementById("nightPrice").textContent =
+            "₹" + price.toLocaleString("en-IN");
+
+
+        let nights = 1;
+
+
+        if (checkin && checkout) {
+
+            const start =
+                new Date(checkin);
+
+            const end =
+                new Date(checkout);
+
+            const difference =
+                end - start;
+
+            nights =
+                Math.ceil(
+                    difference / (1000 * 60 * 60 * 24)
+                );
+
+            if (nights < 1) {
+                nights = 1;
+            }
+
+        }
+
+
+        document.getElementById("nightCount").textContent =
+            nights;
+
+
+        const total =
+            price * nights;
+
+
+        document.getElementById("totalPrice").textContent =
+            "₹" + total.toLocaleString("en-IN");
+
+    }
+
+
+    /* ================= EVENTS ================= */
+
+    document
+        .getElementById("checkin")
+        .addEventListener(
+            "change",
+            calculatePrice
+        );
+
+
+    document
+        .getElementById("checkout")
+        .addEventListener(
+            "change",
+            calculatePrice
+        );
+
+
+    document
+        .querySelectorAll('input[name="room"]')
+        .forEach(function(room) {
+
+            room.addEventListener(
+                "change",
+                calculatePrice
+            );
+
+        });
+
+
+    /* ================= FORM ================= */
+
+    document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("name").value;
+
+            const room =
+                document.querySelector(
+                    'input[name="room"]:checked'
+                ).dataset.name;
+
+            const payment =
+                document.querySelector(
+                    'input[name="payment"]:checked'
+                ).value;
+
+            const total =
+                document.getElementById("totalPrice").textContent;
+
+
+            alert(
+                "Reservation Request Received!\n\n" +
+                "Guest: " + name + "\n" +
+                "Room: " + room + "\n" +
+                "Total: " + total + "\n" +
+                "Payment: " + payment
+            );
+
+        });
+
+
+</script>
+
+</body>
+</html>

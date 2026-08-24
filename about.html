@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | Serenity Palace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f5eee5;
+            color: #30251d;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 20px 7%;
+
+            background: rgba(28, 21, 16, 0.82);
+
+            backdrop-filter: blur(12px);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            color: white;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 32px;
+
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #d7ae6c;
+        }
+
+        .nav-links {
+            display: flex;
+
+            list-style: none;
+
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+
+            font-size: 13px;
+
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: #d7ae6c;
+        }
+
+        .book-btn {
+            color: white;
+
+            border: 1px solid #d7ae6c;
+
+            padding: 10px 20px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            transition: .3s;
+        }
+
+        .book-btn:hover {
+            background: #d7ae6c;
+            color: #241b14;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .about-hero {
+            min-height: 560px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+
+                linear-gradient(
+                    rgba(25, 18, 13, .42),
+                    rgba(25, 18, 13, .78)
+                ),
+
+                url("images/hotel-hero.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+        .hero-content {
+            padding: 100px 20px 40px;
+        }
+
+        .hero-label {
+            color: #dfbb7c;
+
+            text-transform: uppercase;
+
+            letter-spacing: 5px;
+
+            font-size: 11px;
+
+            margin-bottom: 18px;
+        }
+
+        .about-hero h1 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(60px, 8vw, 100px);
+
+            font-weight: 500;
+
+            line-height: .9;
+        }
+
+        .about-hero p {
+            max-width: 650px;
+
+            margin: 25px auto 0;
+
+            color: #e5ddd3;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= STORY ================= */
+
+        .story {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 110px 7%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .story-images {
+            position: relative;
+
+            min-height: 530px;
+        }
+
+        .story-main {
+            width: 80%;
+
+            height: 450px;
+
+            object-fit: cover;
+        }
+
+        .story-small {
+            position: absolute;
+
+            width: 45%;
+
+            height: 220px;
+
+            object-fit: cover;
+
+            right: 0;
+
+            bottom: 0;
+
+            border: 12px solid #f5eee5;
+        }
+
+        .story-label {
+            color: #a17846;
+
+            text-transform: uppercase;
+
+            letter-spacing: 4px;
+
+            font-size: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .story-content h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 58px;
+
+            font-weight: 500;
+
+            line-height: 1;
+        }
+
+        .story-content h2 span {
+            color: #a17846;
+        }
+
+        .story-content p {
+            color: #71675d;
+
+            font-size: 13px;
+
+            line-height: 2;
+
+            margin-top: 22px;
+        }
+
+
+        /* ================= VALUES ================= */
+
+        .values {
+            background: #30251d;
+
+            color: white;
+
+            padding: 100px 8%;
+        }
+
+        .values-heading {
+            text-align: center;
+
+            margin-bottom: 55px;
+        }
+
+        .values-heading .story-label {
+            color: #d5aa6b;
+        }
+
+        .values-heading h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 55px;
+
+            font-weight: 500;
+        }
+
+        .value-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .value-card {
+            padding: 40px 28px;
+
+            border: 1px solid #55483c;
+
+            text-align: center;
+
+            transition: .4s;
+        }
+
+        .value-card:hover {
+            background: #3c2e23;
+
+            transform: translateY(-7px);
+        }
+
+        .value-icon {
+            font-size: 35px;
+
+            margin-bottom: 18px;
+        }
+
+        .value-card h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 29px;
+
+            font-weight: 500;
+
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: #bdb2a6;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+        }
+
+
+        /* ================= EXPERIENCE ================= */
+
+        .experience {
+            padding: 110px 7%;
+
+            text-align: center;
+        }
+
+        .experience-label {
+            color: #a17846;
+
+            text-transform: uppercase;
+
+            letter-spacing: 4px;
+
+            font-size: 10px;
+        }
+
+        .experience h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 58px;
+
+            font-weight: 500;
+
+            margin: 12px 0 20px;
+        }
+
+        .experience > p {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #756b61;
+
+            font-size: 13px;
+
+            line-height: 1.9;
+        }
+
+        .experience-grid {
+            max-width: 1100px;
+
+            margin: 55px auto 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .experience-card {
+            position: relative;
+
+            height: 360px;
+
+            overflow: hidden;
+        }
+
+        .experience-card img {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .7s;
+        }
+
+        .experience-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .experience-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            padding: 25px;
+
+            background:
+                linear-gradient(
+                    transparent 35%,
+                    rgba(20, 14, 10, .85)
+                );
+
+            color: white;
+
+            text-align: left;
+        }
+
+        .experience-overlay h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 30px;
+
+            font-weight: 500;
+        }
+
+
+        /* ================= CTA ================= */
+
+        .about-cta {
+            padding: 100px 20px;
+
+            text-align: center;
+
+            background: #e8ded1;
+        }
+
+        .about-cta h2 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 58px;
+
+            font-weight: 500;
+        }
+
+        .about-cta p {
+            color: #756b61;
+
+            font-size: 13px;
+
+            margin: 15px auto 25px;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            background: #30251d;
+
+            color: white;
+
+            padding: 14px 30px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            transition: .3s;
+        }
+
+        .cta-button:hover {
+            background: #c49a5e;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #1d1611;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 55px 20px;
+        }
+
+        footer h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 32px;
+
+            letter-spacing: 3px;
+        }
+
+        footer h3 span {
+            color: #d7ae6c;
+        }
+
+        footer p {
+            color: #8e867e;
+
+            font-size: 11px;
+
+            margin-top: 10px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .story {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            .story-images {
+                min-height: 430px;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 550px) {
+
+            .story {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .story-content h2,
+            .experience h2,
+            .about-cta h2 {
+                font-size: 43px;
+            }
+
+            .story-main {
+                width: 88%;
+            }
+
+            .story-small {
+                width: 45%;
+                height: 180px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <div class="logo">
+        SERENITY<span>.</span>
+    </div>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="intro.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="about.html">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="rooms.html">
+                Rooms
+            </a>
+        </li>
+
+        <li>
+            <a href="intro.html#dining">
+                Dining
+            </a>
+        </li>
+
+    </ul>
+
+
+    <a href="stay.html" class="book-btn">
+        Book Your Stay
+    </a>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="about-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            Welcome To Serenity Palace
+        </div>
+
+        <h1>
+            Our Story
+        </h1>
+
+        <p>
+            A peaceful destination created for beautiful
+            stays, memorable dining and moments that stay
+            with you long after you leave.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section class="story">
+
+
+    <div class="story-images">
+
+         <img
+            src="https://media.easemytrip.com/media/Hotel/SHL-22081059308191/Hotel/Hotelz42eoM.png"
+
+            alt="Peaceful hotel"
+            class="story-main"
+        >
+
+       <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuPDTr5m4QclWNNZyT7_28l-o5iIgRWuX--aAnpJVKA&s=10"
+
+            alt="Serenity Palace"
+            class="story-small"
+        >
+
+    </div>
+
+
+    <div class="story-content">
+
+        <div class="story-label">
+            The Serenity Story
+        </div>
+
+        <h2>
+            More than a hotel,
+            <span>a feeling.</span>
+        </h2>
+
+        <p>
+            Serenity Palace was created with one simple idea:
+            to give guests a place where they can slow down,
+            breathe and enjoy the beauty of the moment.
+        </p>
+
+        <p>
+            From the warmth of our rooms to the flavours
+            served by our chefs, every detail is thoughtfully
+            designed to make your stay comfortable,
+            peaceful and memorable.
+        </p>
+
+        <p>
+            Whether you are visiting for a relaxing weekend,
+            a special celebration or a quiet escape,
+            we welcome you as a guest and hope you leave
+            feeling like family.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= VALUES ================= -->
+
+<section class="values">
+
+    <div class="values-heading">
+
+        <div class="story-label">
+            What We Believe
+        </div>
+
+        <h2>
+            Our Values
+        </h2>
+
+    </div>
+
+
+    <div class="value-grid">
+
+
+        <div class="value-card">
+
+            <div class="value-icon">
+                🌿
+            </div>
+
+            <h3>
+                Peace
+            </h3>
+
+            <p>
+                We create spaces where our guests can
+                relax, disconnect from the busy world
+                and enjoy peaceful moments.
+            </p>
+
+        </div>
+
+
+        <div class="value-card">
+
+            <div class="value-icon">
+                ✨
+            </div>
+
+            <h3>
+                Hospitality
+            </h3>
+
+            <p>
+                Genuine warmth and thoughtful service
+                are at the heart of everything we do.
+            </p>
+
+        </div>
+
+
+        <div class="value-card">
+
+            <div class="value-icon">
+                🍽️
+            </div>
+
+            <h3>
+                Taste
+            </h3>
+
+            <p>
+                Our chefs celebrate beautiful ingredients,
+                traditional flavours and creative cuisine.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section class="experience">
+
+    <div class="experience-label">
+        Discover Serenity
+    </div>
+
+    <h2>
+        Moments Worth Remembering
+    </h2>
+
+    <p>
+        Your experience extends beyond your room.
+        Discover peaceful spaces, delicious food and
+        memorable moments throughout the hotel.
+    </p>
+
+
+    <div class="experience-grid">
+
+
+        <div class="experience-card">
+
+            <img
+                src="images/signature-dining.jpg"
+                alt="Signature dining"
+            >
+
+            <div class="experience-overlay">
+
+                <h3>
+                    Signature Dining
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <img
+                src="images/hotel-spa.jpg"
+                alt="Relaxing spa"
+            >
+
+            <div class="experience-overlay">
+
+                <h3>
+                    Relax & Rejuvenate
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-card">
+
+            <img
+                src="images/hotel-hero.jpg"
+                alt="Hotel experience"
+            >
+
+            <div class="experience-overlay">
+
+                <h3>
+                    Peaceful Escapes
+                </h3>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="about-cta">
+
+    <div class="experience-label">
+        Your Journey Begins Here
+    </div>
+
+    <h2>
+        Come Stay With Us
+    </h2>
+
+    <p>
+        Discover a place where comfort, taste and
+        peaceful moments come together.
+    </p>
+
+    <a
+        href="stay.html"
+        class="cta-button"
+    >
+        Book Your Stay →
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>
+        SERENITY<span>.</span>
+    </h3>
+
+    <p>
+        A peaceful luxury destination for
+        unforgettable stays.
+    </p>
+
+    <p>
+        © 2026 Serenity Palace. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1742 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Serenity Palace | Luxury Hotel & Dining</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           BASIC
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f4eee5;
+            color: #30251d;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes floating {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slowZoom {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes lineGrow {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 70px;
+            }
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 7%;
+
+            z-index: 1000;
+
+            background: rgba(28, 21, 16, 0.72);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-family: "Cormorant Garamond", serif;
+            color: #fff;
+            font-size: 34px;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: #d6ae70;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #eee;
+            font-size: 13px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 1px;
+            background: #d6ae70;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d6ae70;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-book {
+            padding: 11px 23px;
+            border: 1px solid #d6ae70;
+            color: white;
+            border-radius: 30px;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .nav-book:hover {
+            background: #d6ae70;
+            color: #251c15;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(25,18,13,0.35),
+                    rgba(25,18,13,0.78)
+                ),
+                url("hero-hotel.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            animation: slowZoom 15s infinite alternate ease-in-out;
+            z-index: -2;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    transparent 20%,
+                    rgba(0,0,0,0.35)
+                );
+
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 950px;
+            padding: 30px;
+            animation: fadeUp 1.2s ease;
+        }
+
+        .hero-small {
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: #e1bd82;
+            font-size: 12px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(60px, 9vw, 125px);
+            line-height: 0.82;
+            font-weight: 500;
+            margin-bottom: 35px;
+        }
+
+        .hero h1 span {
+            color: #d8b274;
+            font-style: italic;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+
+            color: #e9e2d9;
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .hero-buttons {
+            margin-top: 38px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 15px 30px;
+            border-radius: 40px;
+            font-size: 12px;
+            transition: 0.4s;
+        }
+
+        .gold-btn {
+            background: #c49a5e;
+            color: white;
+        }
+
+        .gold-btn:hover {
+            background: #e0bc7d;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        }
+
+        .outline-btn {
+            border: 1px solid rgba(255,255,255,0.7);
+            color: white;
+        }
+
+        .outline-btn:hover {
+            background: white;
+            color: #30251d;
+            transform: translateY(-5px);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #ddd;
+
+            animation: floating 2s infinite ease-in-out;
+        }
+
+
+        /* =====================================================
+           WELCOME
+        ===================================================== */
+
+        .welcome {
+            padding: 120px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .welcome-images {
+            position: relative;
+            min-height: 520px;
+        }
+
+        .welcome-main {
+            width: 82%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .welcome-small {
+            position: absolute;
+            width: 42%;
+            height: 230px;
+            object-fit: cover;
+
+            right: 0;
+            bottom: -20px;
+
+            border: 10px solid #f4eee5;
+
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .welcome-text .label,
+        .section-label {
+            text-transform: uppercase;
+            color: #a17846;
+            font-size: 11px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .welcome-text h2,
+        .section-title h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 58px;
+            line-height: 0.95;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .welcome-text h2 span {
+            color: #a87c48;
+            font-style: italic;
+        }
+
+        .welcome-text p {
+            color: #756b61;
+            line-height: 2;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .discover {
+            display: inline-block;
+            color: #8f683e;
+            font-size: 13px;
+            border-bottom: 1px solid #b08a5a;
+            padding-bottom: 7px;
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services {
+            padding: 0 8% 110px;
+
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+
+        .service {
+            background: #eae1d4;
+            padding: 35px 25px;
+            text-align: center;
+
+            transition: 0.4s;
+        }
+
+        .service:hover {
+            background: #30251d;
+            color: white;
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .service h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #766b61;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .service:hover p {
+            color: #cfc3b5;
+        }
+
+
+        /* =====================================================
+           DINING
+        ===================================================== */
+
+        .dining {
+            background: #2c2119;
+            color: white;
+            padding: 110px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .dining .section-label {
+            color: #d3aa6c;
+        }
+
+        .dining .section-title h2 {
+            color: white;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            height: 1px;
+            background: #c39a5c;
+            margin: 25px auto 0;
+            animation: lineGrow 2s ease forwards;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .food-card {
+            position: relative;
+            overflow: hidden;
+            background: #3a2d23;
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+
+            transition: 0.7s;
+        }
+
+        .food-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .food-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 55%;
+
+            background: linear-gradient(
+                transparent,
+                rgba(20,14,10,0.95)
+            );
+        }
+
+        .food-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            z-index: 2;
+
+            padding: 25px;
+            width: 100%;
+        }
+
+        .food-info h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 30px;
+        }
+
+        .food-info p {
+            color: #d3c8ba;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .price {
+            display: block;
+            margin-top: 10px;
+            color: #ddb675;
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           ROOMS
+        ===================================================== */
+
+        .rooms {
+            padding: 120px 8%;
+            background: #f4eee5;
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .room-card {
+            background: white;
+            overflow: hidden;
+
+            box-shadow: 0 15px 40px rgba(53,40,27,0.08);
+
+            transition: 0.5s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(53,40,27,0.16);
+        }
+
+        .room-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 310px;
+            object-fit: cover;
+            transition: 0.7s;
+        }
+
+        .room-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .room-tag {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+
+            background: rgba(35,25,18,0.8);
+            color: #e1bb7c;
+
+            padding: 8px 13px;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .room-info {
+            padding: 27px;
+        }
+
+        .room-info h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 32px;
+        }
+
+        .room-info p {
+            color: #776d63;
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 10px 0 20px;
+        }
+
+        .room-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .room-price {
+            color: #976b3d;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .room-button {
+            background: #30251d;
+            color: white;
+
+            padding: 10px 19px;
+            border-radius: 25px;
+
+            font-size: 11px;
+            transition: 0.3s;
+        }
+
+        .room-button:hover {
+            background: #c29a60;
+        }
+
+
+        /* =====================================================
+           ORDER
+        ===================================================== */
+
+        .order {
+            padding: 110px 8%;
+
+            background:
+                linear-gradient(
+                    rgba(35,25,18,0.88),
+                    rgba(35,25,18,0.88)
+                ),
+                url("signature-dining.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            color: white;
+        }
+
+        .order-box {
+            max-width: 950px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .order-box .section-label {
+            color: #d8b171;
+        }
+
+        .order-box h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 60px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .order-box p {
+            max-width: 620px;
+            margin: auto;
+            color: #d6ccc0;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .payment-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .payment-btn {
+            border: none;
+            padding: 15px 25px;
+
+            border-radius: 30px;
+
+            font-family: "Poppins", sans-serif;
+            font-size: 12px;
+
+            cursor: pointer;
+
+            transition: 0.4s;
+        }
+
+        .payment-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .cash {
+            background: #d7ae6d;
+            color: #261b13;
+        }
+
+        .upi {
+            background: #8b6bb0;
+            color: white;
+        }
+
+        .card {
+            background: white;
+            color: #30251d;
+        }
+
+
+        /* =====================================================
+           UPI POPUP
+        ===================================================== */
+
+        .payment-popup {
+            display: none;
+
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0,0,0,0.75);
+
+            z-index: 3000;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+        }
+
+        .payment-popup.active {
+            display: flex;
+        }
+
+        .payment-modal {
+            width: 100%;
+            max-width: 430px;
+
+            background: #f8f2e9;
+
+            padding: 40px;
+
+            text-align: center;
+
+            border-radius: 8px;
+
+            animation: fadeUp 0.4s ease;
+        }
+
+        .payment-modal h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .payment-modal p {
+            font-size: 12px;
+            color: #756b61;
+            line-height: 1.7;
+        }
+
+        .upi-input {
+            width: 100%;
+
+            padding: 14px 16px;
+
+            border: 1px solid #d5c6b4;
+
+            background: white;
+
+            margin: 20px 0;
+
+            outline: none;
+
+            font-family: "Poppins", sans-serif;
+
+            border-radius: 4px;
+        }
+
+        .confirm-payment {
+            width: 100%;
+
+            border: none;
+
+            background: #30251d;
+            color: white;
+
+            padding: 14px;
+
+            cursor: pointer;
+
+            border-radius: 30px;
+
+            font-family: "Poppins", sans-serif;
+        }
+
+        .close-popup {
+            margin-top: 15px;
+
+            border: none;
+            background: none;
+
+            cursor: pointer;
+
+            color: #806a52;
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #1d1611;
+            color: white;
+            padding: 70px 8% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        footer h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        footer h4 {
+            color: #d6ae70;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        footer p,
+        footer a {
+            color: #9d958d;
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        footer a {
+            display: block;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #d6ae70;
+        }
+
+        .copyright {
+            border-top: 1px solid #382d25;
+            margin-top: 50px;
+            padding-top: 20px;
+            text-align: center;
+            color: #6f6861;
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .welcome {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .food-grid,
+            .room-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            nav {
+                padding: 17px 5%;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .nav-book {
+                padding: 9px 15px;
+            }
+
+            .hero h1 {
+                font-size: 65px;
+            }
+
+            .welcome {
+                padding: 80px 6%;
+            }
+
+            .welcome-images {
+                min-height: 380px;
+            }
+
+            .welcome-main {
+                height: 370px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+                padding: 0 6% 80px;
+            }
+
+            .dining,
+            .rooms,
+            .order {
+                padding: 80px 6%;
+            }
+
+            .order-box h2 {
+                font-size: 45px;
+            }
+
+            .footer-grid {
+                gap: 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+        SERENITY<span>.</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="intro.html">Home</a>
+        </li>
+
+        <li>
+            <a href="about.html">About</a>
+        </li>
+
+        <li>
+            <a href="dinning.html">Dining</a>
+        </li>
+
+        <li>
+            <a href="rooms.html">Rooms</a>
+        </li>
+
+
+
+    </ul>
+
+    <a href="stay.html" class="nav-book">
+        Book Your Stay
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            Welcome to Serenity Palace
+        </div>
+
+        <h1>
+            Stay in <span>Peace.</span><br>
+            Dine in <span>Luxury.</span>
+        </h1>
+
+        <p>
+            Discover a peaceful retreat surrounded by elegance,
+            comfort and unforgettable flavours. Every detail is
+            designed to make your stay beautifully memorable.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="rooms.html" class="hero-btn gold-btn">
+                Explore Rooms
+            </a>
+
+            <a href="dinning.html" class="hero-btn outline-btn">
+                Explore Dining
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        SCROLL TO EXPLORE ↓
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WELCOME
+===================================================== -->
+
+<section class="welcome" id="about">
+
+    <div class="welcome-images">
+
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA6RKFnj7pXUdXo9dMGR3FVi70NsRYNMJkXUH6Q4pd2w&s=10"
+            class="welcome-main"
+            alt="Peaceful hotel experience"
+        >
+
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSuc7sBTNMlR_zhzsch2XbYpAdZ02_HqPXuN_xiDnnyg&s=10"
+            class="welcome-small"
+            alt="Luxury hotel"
+        >
+
+    </div>
+
+
+    <div class="welcome-text">
+
+        <div class="label">
+            The Serenity Experience
+        </div>
+
+        <h2>
+            A place to <span>slow down</span>
+            and enjoy life.
+        </h2>
+
+        <p>
+            Leave the busy world behind and step into a peaceful
+            environment created for relaxation. Enjoy beautiful
+            rooms, peaceful surroundings and carefully prepared
+            dishes made by our chefs.
+        </p>
+
+        <p>
+            Whether you are travelling for a weekend escape,
+            celebrating a special occasion or simply looking for
+            a quiet place to relax, Serenity Palace welcomes you.
+        </p>
+
+        <a href="rooms.html" class="discover">
+            Discover Our Hotel →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section class="services">
+
+    <div class="service">
+
+        <div class="service-icon">
+            🌿
+        </div>
+
+        <h3>
+            Peaceful Environment
+        </h3>
+
+        <p>
+            Quiet surroundings created
+            for complete relaxation.
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">
+            🛏️
+        </div>
+
+        <h3>
+            Luxury Rooms
+        </h3>
+
+        <p>
+            Elegant rooms with comfort
+            in every detail.
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">
+            🍽️
+        </div>
+
+        <h3>
+            Fine Dining
+        </h3>
+
+        <p>
+            Delicious dishes prepared
+            with fresh ingredients.
+        </p>
+
+    </div>
+
+
+    <div class="service">
+
+        <div class="service-icon">
+            ✨
+        </div>
+
+        <h3>
+            Personal Service
+        </h3>
+
+        <p>
+            Warm hospitality throughout
+            your entire experience.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DINING
+===================================================== -->
+
+<section class="dining" id="dining">
+
+    <div class="section-title">
+
+        <div class="section-label">
+            Taste of Serenity
+        </div>
+
+        <h2>
+            Crafted With Passion
+        </h2>
+
+    </div>
+
+
+    <div class="food-grid">
+
+
+        <div class="food-card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGJ8LLuhpzZpWZe0QqD_y2zqBxE4GYl4ZcgIUa6YG66w&s=10"
+                alt="Indian cuisine"
+            >
+
+            <div class="food-info">
+
+                <h3>
+                    Royal Indian Cuisine
+                </h3>
+
+                <p>
+                    Traditional flavours with a modern presentation.
+                </p>
+
+                <span class="price">
+                    From ₹499
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="food-card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDJwswkdRCV68NZYIArtTDVSgeduMMRwaBziLR3nwfog&s=10"
+                alt="Signature restaurant dish"
+            >
+
+            <div class="food-info">
+
+                <h3>
+                    Chef's Signature
+                </h3>
+
+                <p>
+                    A special creation prepared by our chef.
+                </p>
+
+                <span class="price">
+                    From ₹699
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="food-card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwnS7Uf7qxvquXM6oQEzBOpox3Ii5bqsaEhnXTG67FRg&s=10"
+                alt="Luxury dessert"
+            >
+
+            <div class="food-info">
+
+                <h3>
+                    Palace Desserts
+                </h3>
+
+                <p>
+                    Sweet creations to complete your meal.
+                </p>
+
+                <span class="price">
+                    From ₹299
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ROOMS
+===================================================== -->
+
+<section class="rooms" id="rooms">
+
+    <div class="section-title">
+
+        <div class="section-label">
+            Stay With Us
+        </div>
+
+        <h2>
+            Your Private Retreat
+        </h2>
+
+    </div>
+
+
+    <div class="room-grid">
+
+
+        <div class="room-card">
+
+            <div class="room-image">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYktQWhGVt2qkg40Zgs8gTmylJXry2UYMbECKyDCXR6Q&s=10"
+                    alt="Deluxe room"
+                >
+
+                <div class="room-tag">
+                    DELUXE
+                </div>
+
+            </div>
+
+            <div class="room-info">
+
+                <h3>
+                    Deluxe Room
+                </h3>
+
+                <p>
+                    Elegant interiors, comfortable bedding
+                    and everything you need for a relaxing stay.
+                </p>
+
+                <div class="room-bottom">
+
+                    <span class="room-price">
+                        ₹4,999 / night
+                    </span>
+
+                    <a href="#" class="room-button">
+                        Reserve
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="room-card">
+
+            <div class="room-image">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh6eu7mkrZGwljLRm_857Vffp-rJmAwBbOZ-ohX4dkEg&s=10"
+                    alt="Luxury suite"
+                >
+
+                <div class="room-tag">
+                    LUXURY
+                </div>
+
+            </div>
+
+            <div class="room-info">
+
+                <h3>
+                    Luxury Suite
+                </h3>
+
+                <p>
+                    Spacious surroundings, elegant furniture
+                    and premium comfort.
+                </p>
+
+                <div class="room-bottom">
+
+                    <span class="room-price">
+                        ₹7,999 / night
+                    </span>
+
+                    <a href="#" class="room-button">
+                        Reserve
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="room-card">
+
+            <div class="room-image">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxzswb-cFqbjPQE3VdxvArdOe7qm-niU4L7gNstjpRog&s=10"
+                    alt="Presidential suite"
+                >
+
+                <div class="room-tag">
+                    SIGNATURE
+                </div>
+
+            </div>
+
+            <div class="room-info">
+
+                <h3>
+                    Presidential Suite
+                </h3>
+
+                <p>
+                    The ultimate luxury experience designed
+                    for unforgettable occasions.
+                </p>
+
+                <div class="room-bottom">
+
+                    <span class="room-price">
+                        ₹14,999 / night
+                    </span>
+
+                    <a href="#" class="room-button">
+                        Reserve
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOD ORDER + PAYMENT
+===================================================== -->
+
+<section class="order" id="order">
+
+    <div class="order-box">
+
+        <div class="section-label">
+            In-Room Dining
+        </div>
+
+        <h2>
+            Delicious Food,<br>
+            Delivered to Your Door.
+        </h2>
+
+        <p>
+            Choose your favourite dishes from our kitchen and
+            select your preferred payment method. We accept
+            Cash on Delivery, UPI and Card payments.
+        </p>
+
+
+        <div class="payment-buttons">
+
+            <button
+                class="payment-btn cash"
+                onclick="cashPayment()">
+
+                💵 Cash on Delivery
+
+            </button>
+
+
+            <button
+                class="payment-btn upi"
+                onclick="openUPI()">
+
+                📱 Pay with UPI
+<href="8950153255@nyes
+            </button>
+
+
+            <button
+                class="payment-btn card"
+                onclick="cardPayment()">
+
+                💳 Pay with Card
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     UPI POPUP
+===================================================== -->
+
+<div class="payment-popup" id="upiPopup">
+
+    <div class="payment-modal">
+
+        <h2>
+            UPI Payment
+        </h2>
+
+        <p>
+            Enter your UPI ID to continue with your payment.
+        </p>
+
+        <input
+            type="text"
+            class="upi-input"
+            id="upiId"
+            placeholder="example@upi"
+        >
+
+        <button
+            class="confirm-payment"
+            onclick="confirmUPI()">
+
+            Continue with UPI
+
+        </button>
+
+        <button
+            class="close-popup"
+            onclick="closeUPI()">
+
+            Cancel
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>
+                SERENITY.
+            </h3>
+
+            <p>
+                A peaceful luxury destination where
+                beautiful stays, thoughtful hospitality
+                and exceptional dining meet.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="rooms.html">
+                Rooms
+            </a>
+
+            <a href="dinning.html">
+                Dining
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Contact
+            </h4>
+
+            <p>
+                📍 Ambala, Haryana
+            </p>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                ✉ hello@serenityhotel.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Serenity Palace · All Rights Reserved
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    function cashPayment() {
+
+        alert(
+            "Cash on Delivery selected.\n\nYour order can be confirmed after entering your delivery details."
+        );
+
+    }
+
+
+    function openUPI() {
+
+        document
+            .getElementById("upiPopup")
+            .classList.add("active");
+
+    }
+
+
+    function closeUPI() {
+
+        document
+            .getElementById("upiPopup")
+            .classList.remove("active");
+
+    }
+
+
+    function confirmUPI() {
+
+        const upi =
+            document
+            .getElementById("upiId")
+            .value
+            .trim();
+
+        if (upi === "") {
+
+            alert("Please enter your UPI ID.");
+
+            return;
+
+        }
+
+        if (!upi.includes("@")) {
+
+            alert("Please enter a valid UPI ID, for example name@upi.");
+
+            return;
+
+        }
+
+        alert(
+            "UPI ID accepted.\n\nThe secure payment process will continue here."
+        );
+
+    }
+
+
+    function cardPayment() {
+
+        alert(
+            "Card payment selected.\n\nThe secure card payment page will open here."
+        );
+
+    }
+
+
+    /* Close popup by clicking outside */
+
+    document
+        .getElementById("upiPopup")
+        .addEventListener("click", function(event) {
+
+            if (event.target === this) {
+
+                closeUPI();
+
+            }
+
+        });
+
+</script>
+
+
+</body>
+</html>
+```
