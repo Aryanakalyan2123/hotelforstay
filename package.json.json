@@ -1,0 +1,12 @@
+{
+  "name": "hotelforstay",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemailer": "^6.9.16",
+    "dotenv": "^16.4.7"
+  }
+}
