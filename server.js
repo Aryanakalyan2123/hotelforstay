@@ -14,7 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve your HTML, CSS, JS, images from public folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "intro.html"));
+});
 
 
 // ===============================
@@ -57,6 +61,7 @@ app.get("/", (req, res) => {
     res.sendFile(
         path.join(__dirname, "public", "intro.html")
     );
+
 
 });
 
