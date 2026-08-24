@@ -1,9 +1,12 @@
-
 {
-  "name": "hp",
+  "name": "hotelforstay",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Hotel For Stay",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
